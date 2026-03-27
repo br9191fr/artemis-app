@@ -1,8 +1,7 @@
-#mkdir version: '3.8'
 services:
   artemis:
     image: apache/activemq-artemis:2.31.2
-    user: root
+    user: bricci
     ports:
       - "61616:61616"
       - "8161:8161"
@@ -11,6 +10,5 @@ services:
       ARTEMIS_PASSWORD: admin
     volumes:
       - artemis-data:/var/lib/artemis-instance/data
-      - ./broker.xml:/var/lib/artemis-instance/etc/broker.xml
 volumes:
   artemis-data:

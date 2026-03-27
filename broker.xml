@@ -1,0 +1,5 @@
+<address-settings>
+    <address-setting match="#">
+        <duplicate-detection>true</duplicate-detection>
+    </address-setting>
+</address-settings>
