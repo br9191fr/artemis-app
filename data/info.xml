@@ -1,0 +1,9 @@
+<project>
+    <name>MyProject</name>
+    <description>A sample project for testing</description>
+    <version>1.0.0</version>
+    <src>
+        <file>main.py</file>
+        <file>utils.py</file>
+    </src>
+</project>
