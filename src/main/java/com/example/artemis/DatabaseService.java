@@ -36,7 +36,7 @@ public class DatabaseService {
 
             ps.setString(1, messageId);
             ps.setString(2, xml);
-
+            System.out.println("try to save message with user:"+ USER + "password:"+ PASSWORD);
             int rows = ps.executeUpdate();
             return rows > 0;
 
