@@ -18,10 +18,10 @@ public class XmlProducer {
             MessageProducer producer = session.createProducer(queue);
 
             // Same duplicate ID for all messages (to simulate duplicates)
-            String duplicateId = UUID.randomUUID().toString();
+            String duplicateId = null;
 
             for (int i = 1; i <= 10; i++) {
-
+                duplicateId = UUID.randomUUID().toString();
                 TextMessage message = session.createTextMessage(xmlMessage);
 
                 // 🔑 Artemis duplicate detection header

@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DatabaseService {
-
-    private static final String DEFAULT_URL = "jdbc:postgresql://127.0.0.1:5432/messages";
+    // was 127.0.0.1
+    private static final String DEFAULT_URL = "jdbc:postgresql://192.168.208.1:5432/messages";
     private static final String DEFAULT_USER = "bruno";
     private static final String DEFAULT_PASSWORD = "alto";
 
@@ -30,10 +30,8 @@ public class DatabaseService {
             VALUES (?, ?)
             ON CONFLICT (message_id) DO NOTHING
         """;
-
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, messageId);
             ps.setString(2, xml);
             System.out.println("try to save message with user:"+ USER + "password:"+ PASSWORD);
