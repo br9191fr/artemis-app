@@ -1,0 +1,17 @@
+# PostgreSQL Client Authentication Configuration File
+# Require password authentication for all connections.
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# Local Unix socket connections
+local   all             all                                     scram-sha-256
+
+# IPv4 localhost
+host    all             all             127.0.0.1/32            scram-sha-256
+
+# IPv6 localhost
+host    all             all             ::1/128                 scram-sha-256
+
+# Any other IPv4/IPv6 remote host
+host    all             all             0.0.0.0/0               scram-sha-256
+host    all             all             ::/0                    scram-sha-256

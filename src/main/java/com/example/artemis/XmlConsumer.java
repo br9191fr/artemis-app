@@ -20,7 +20,7 @@ public class XmlConsumer {
             MessageConsumer consumer = session.createConsumer(queue);
 
             System.out.println("⏳ Waiting for XML message...");
-
+            int count = 0;
             while (true) {
 
                 Message msg = consumer.receive();
@@ -35,11 +35,11 @@ public class XmlConsumer {
                     if (messageId == null) {
                         messageId = "NO_ID_" + System.currentTimeMillis();
                     }
-                    System.out.println("try to save message");
                     boolean inserted = db.saveMessage(messageId, xml);
 
                     if (inserted) {
-                        System.out.println("✅ Stored new message: " + messageId);
+                        count++;
+                        System.out.println("✅ Stored new message: " + messageId + " (" + count + " total)");
                     } else {
                         System.out.println("🚫 Duplicate ignored: " + messageId);
                     }

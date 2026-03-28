@@ -30,11 +30,9 @@ public class DatabaseService {
             VALUES (?, ?)
             ON CONFLICT (message_id) DO NOTHING
         """;
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, messageId);
             ps.setString(2, xml);
-            System.out.println("try to save message with user:"+ USER + "password:"+ PASSWORD);
             int rows = ps.executeUpdate();
             return rows > 0;
 
