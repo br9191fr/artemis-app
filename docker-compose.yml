@@ -25,6 +25,17 @@ services:
     volumes:
       - ./pg-data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  pgbouncer:
+    image: edoburu/pgbouncer
+    container_name: pgbouncer
+    depends_on:
+      - postgres
+    ports:
+      - "6432:6432"
+    volumes:
+      - ./pgbouncer/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini
+      - ./pgbouncer/userlist.txt:/etc/pgbouncer/userlist.txt
+      -
 volumes:
   artemis-data:
   pg-data:
