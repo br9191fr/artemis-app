@@ -6,7 +6,7 @@ import java.nio.file.Path;
 public class CliApp {
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
-            System.out.println("Usage: send <file> | receive");
+            System.out.println("Usage: send <file> | receive <maxMessages>");
             return;
         }
 
@@ -16,8 +16,15 @@ public class CliApp {
                 new XmlProducer().send(xml);
                 break;
             case "receive":
-                new XmlConsumer().receive();
+                if (args.length < 2) {
+                    System.out.println("Usage: receive <maxMessages>");
+                    return;
+                }
+                int maxMessages = Integer.parseInt(args[1]);
+                new XmlConsumer().receive(maxMessages);
                 break;
+            default:
+                System.out.println("Usage: send <file> | receive <maxMessages>");
         }
     }
 }

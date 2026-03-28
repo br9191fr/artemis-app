@@ -8,7 +8,7 @@ public class XmlConsumer {
     private final DatabaseService db = new DatabaseService();
 
 
-    public void receive() throws Exception {
+    public void receive(int maxMessages) throws Exception {
         Context context = JndiHelper.getContext();
         ConnectionFactory factory = JndiHelper.getConnectionFactory(context);
         Queue queue = JndiHelper.getQueue(context);
@@ -20,8 +20,10 @@ public class XmlConsumer {
             MessageConsumer consumer = session.createConsumer(queue);
 
             System.out.println("⏳ Waiting for XML message...");
+            System.out.println("📦 Will stop after " + maxMessages + " stored message(s).");
+
             int count = 0;
-            while (true) {
+            while (count < maxMessages) {
 
                 Message msg = consumer.receive();
 
@@ -45,6 +47,7 @@ public class XmlConsumer {
                     }
                 }
             }
+            System.out.println("✅ Reached maxMessages=" + maxMessages + ", stopping consumer.");
         }
     }
 }
