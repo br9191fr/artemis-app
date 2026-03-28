@@ -35,7 +35,7 @@ public class XmlConsumer {
                     if (messageId == null) {
                         messageId = "NO_ID_" + System.currentTimeMillis();
                     }
-
+                    System.out.println("try to save message");
                     boolean inserted = db.saveMessage(messageId, xml);
 
                     if (inserted) {

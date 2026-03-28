@@ -18,8 +18,8 @@ services:
     container_name: postgres-db
     environment:
       POSTGRES_DB: messages
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: bruno
+      POSTGRES_PASSWORD: alto
     ports:
       - "5432:5432"
     volumes:
