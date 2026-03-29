@@ -6,10 +6,9 @@ import java.nio.file.Path;
 public class CliApp {
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
-            System.out.println("Usage: send <file> | receive <maxMessages>");
+            System.out.println("Usage for CLI: send <file> | receive <maxMessages>");
             return;
         }
-
         switch (args[0]) {
             case "send":
                 String xml = Files.readString(Path.of(args[1]));
