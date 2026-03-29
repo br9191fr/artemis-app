@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DatabaseService {
 
-    private static final String DEFAULT_URL = "jdbc:postgresql://192.168.208.1:6432/messages";
+    private static final String DEFAULT_URL = "jdbc:postgresql://172.28.160.1:6432/messages";
     private static final String DEFAULT_USER = "bruno";
     private static final String DEFAULT_PASSWORD = "alto";
 

@@ -15,3 +15,5 @@ host    all             all             ::1/128                 scram-sha-256
 # Any other IPv4/IPv6 remote host
 host    all             all             0.0.0.0/0               scram-sha-256
 host    all             all             ::/0                    scram-sha-256
+
+host all all all scram-sha-256
