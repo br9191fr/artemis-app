@@ -12,7 +12,7 @@ public class XmlProducer {
         Context context = JndiHelper.getContext();
         ConnectionFactory factory = JndiHelper.getConnectionFactory(context);
         Queue queue = JndiHelper.getQueue(context);
-
+        final int maxMessages = 10;
         SecureRandom random = new SecureRandom();
         random.setSeed(System.currentTimeMillis());
         try (Connection connection = factory.createConnection()) {
@@ -23,7 +23,7 @@ public class XmlProducer {
             // Same duplicate ID for all messages (to simulate duplicates)
             String currentId = UUID.randomUUID().toString();;
 
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= maxMessages; i++) {
                 if (random.nextInt(100) < 70) {
                     currentId = UUID.randomUUID().toString();
                     System.out.println("✅ Sent message #" + i + " with currentId=" + currentId);
