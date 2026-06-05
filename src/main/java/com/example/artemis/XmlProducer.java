@@ -12,7 +12,7 @@ public class XmlProducer {
         Context context = JndiHelper.getContext();
         ConnectionFactory factory = JndiHelper.getConnectionFactory(context);
         Queue queue = JndiHelper.getQueue(context);
-        final int maxMessages = 10;
+        final int maxMessages = 20;
         SecureRandom random = new SecureRandom();
         random.setSeed(System.currentTimeMillis());
         try (Connection connection = factory.createConnection()) {
