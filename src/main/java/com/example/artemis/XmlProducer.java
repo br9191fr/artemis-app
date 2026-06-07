@@ -21,7 +21,7 @@ public class XmlProducer {
             MessageProducer producer = session.createProducer(queue);
 
             // Same duplicate ID for all messages (to simulate duplicates)
-            String currentId = UUID.randomUUID().toString();;
+            String currentId = UUID.randomUUID().toString();
 
             for (int i = 1; i <= maxMessages; i++) {
                 if (random.nextInt(100) < 70) {

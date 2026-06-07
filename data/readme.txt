@@ -13,3 +13,5 @@ check ip address of the host
 In windows as admin
 ipconfig /all
 then check with value in DatabaseService.java
+
+From powershell connect to pg messages via docker @ 172.28.160.1
