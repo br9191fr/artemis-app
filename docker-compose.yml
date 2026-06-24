@@ -4,7 +4,9 @@ services:
     user: root
     ports:
       - "61616:61616"
+      - "61617:61617"
       - "8161:8161"
+      - "1099:1099"
     environment:
       ARTEMIS_USER: admin
       ARTEMIS_PASSWORD: admin
